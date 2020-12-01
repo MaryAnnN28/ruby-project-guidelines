@@ -1,0 +1,41 @@
+User.destroy_all
+Team.destroy_all
+Favorite_team_joiner.destroy_all
+
+
+andres = User.create(name: "Andres")
+mary_ann = User.create(name: "Mary Ann")
+
+boston = Team.create(name: "Boston Celtics")
+brooklyn = Team.create(name: "Brooklyn Nets")
+new_york = Team.create(name: "New York Knicks")
+philadelphia = Team.create(name: "Philadelphia 76ers")
+toronto = Team.create(name: "Toronto Raptors")
+chicago = Team.create(name: "Chicago Bulls")
+cleveland = Team.create(name: "Cleveland Cavaliers")
+detroit = Team.create(name: "Detroit Pistons")
+indiana = Team.create(name: "Indiana Pacers")
+milwaukee = Team.create(name: "Milwaukee Bucks")
+atlanta = Team.create(name: "Atlanta Hawks")
+charlotte = Team.create(name: "Charlotte Hornets")
+miami = Team.create(name: "Miami Heat")
+orlando = Team.create(name: "Orlando Magic")
+washington = Team.create(name: "Washington Wizards")
+denver = Team.create(name: "Denver Nuggets")
+minnesota = Team.create(name: "Minnesota Timberwolves")
+oklahoma = Team.create(name: "Oklahoma Thunder")
+portland = Team.create(name: "Portland Blazers")
+utah = Team.create(name: "Utah Jazz")
+golden = Team.create(name: "Golden State Warriors")
+clippers = Team.create(name: "Las Angeles Clippers")
+lakers = Team.create(name: "Las Angeles Lakers")
+phoenix = Team.create(name: "Phoenix Suns")
+sacremento = Team.create(name: "Sacremento Kings")
+dallas = Team.create(name: "Dallas Mavericks")
+houston = Team.create(name: "Houston Rockets")
+memphis = Team.create(name: "Memphis Grizzlies")
+new_orleans = Team.create(name: "New Orleans Pelicans")
+san_antonio = Team.create(name: "San Antonio Spurs")
+
+join1 = Favorite_team_joiner.create(user_id: andres.id, team_id: philadelphia.id)
+join2 = Favorite_team_joiner.create(user_id: mary_ann.id, team_id: san_antonio.id)
