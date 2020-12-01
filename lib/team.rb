@@ -1,4 +1,4 @@
-class Team
+class Team < ActiveRecord::Base
 
   attr_accessor :id, :team_name
 

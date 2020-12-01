@@ -1,4 +1,4 @@
-class User
+class User < ActiveRecord::Base
 
   attr_accessor :id, :user_name
 

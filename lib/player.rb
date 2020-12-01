@@ -1,4 +1,4 @@
-class Player
+class Player < ActiveRecord::Base
 
   attr_accessor :id, :player_name
 
