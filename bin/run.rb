@@ -26,7 +26,7 @@ end
 puts "HOME SCREEN"
 puts "Please select an option from the menu below"
 
-# This part of the program houses the main menu. From here we have 7 options
+# This part of the program houses the main menu. From here we have 7 options. This is where we access API and pull favorite team info from conditional.
 
 
 

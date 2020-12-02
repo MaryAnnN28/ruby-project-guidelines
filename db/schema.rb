@@ -20,10 +20,12 @@ ActiveRecord::Schema.define(version: 2020_12_01_205510) do
 
   create_table "players", force: :cascade do |t|
     t.string "name"
+    t.string "api_playerID"
   end
 
   create_table "teams", force: :cascade do |t|
     t.string "name"
+    t.string "api_teamID"
   end
 
   create_table "users", force: :cascade do |t|
