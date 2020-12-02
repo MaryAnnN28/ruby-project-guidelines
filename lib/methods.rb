@@ -4,7 +4,7 @@ require 'openssl'
 require 'byebug'
 require 'json'
 
-def fetch_players(api_teamId) 
+def fetch_players(api_teamId)
      url = URI("https://api-nba-v1.p.rapidapi.com/players/teamId/#{api_teamId}")
 
 

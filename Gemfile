@@ -7,3 +7,7 @@ gem "sqlite3"
 gem "pry"
 gem "require_all"
 gem "rake"
+gem "tty-prompt"
+gem 'uri'
+gem 'openssl'
+gem 'json'
