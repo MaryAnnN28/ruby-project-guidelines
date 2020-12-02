@@ -4,7 +4,7 @@ require 'openssl'
 require 'byebug'
 require 'json'
 
-def fetch_players(api_teamId) 
+def fetch_players(api_teamId)
      url = URI("https://api-nba-v1.p.rapidapi.com/players/teamId/#{api_teamId}")
 
      http = Net::HTTP.new(url.host, url.port)
@@ -56,9 +56,4 @@ end
 
 
 
-# [{"gameId"=>"6300", "teamId"=>"31", "points"=>"13", "pos"=>"", "min"=>"21:07", "fgm"=>"5", "fga"=>"8", "fgp"=>"62.5", "ftm"=>"2", "fta"=>"2", "ftp"=>"100", "tpm"=>"1", "tpa"=>"2", "tpp"=>"50.0", "offReb"=>"0", "defReb"=>"3", "totReb"=>"3", "assists"=>"2", "pFouls"=>"3", "steals"=>"0", "turnovers"=>"4", "blocks"=>"0", "plusMinus"=>"8", "playerId"=>"1899"},
 
-
-# RapidAPI
-# For Team game:   GET/Standings/    "https://api-nba-v1.p.rapidapi.com/standings/standard/2019"
-# For Player game:      GET/statistics/players/playerId   "https://api-nba-v1.p.rapidapi.com/statistics/players/playerId/1896"
