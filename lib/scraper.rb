@@ -1,8 +1,8 @@
-require 'HTTParty'
-require 'Nokogiri'
-
-class Scraper
-
-
-
-end
+# require 'HTTParty'
+# require 'Nokogiri'
+#
+# class Scraper
+#
+#
+#
+# end
