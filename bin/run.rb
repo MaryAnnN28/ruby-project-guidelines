@@ -2,9 +2,17 @@ require_relative '../config/environment'
 require "tty-prompt"
 prompt = TTY::Prompt.new
 Player.destroy_all
-pid = spawn( 'afplay', "music/NBA_on_TNT_Theme.mp3" )
-music_on = true
+music_on = false
 
+puts "\n"
+music_on = prompt.select("Start w/ music?") do |menu|
+  menu.choice "Yes, please!", true
+  menu.choice "No, spare me.", false
+end
+puts "\n"
+if music_on == true
+  pid = spawn( 'afplay', "music/NBA_on_TNT_Theme.mp3" )
+end
 
 #TO DO
 # We need to set up associations (belongto hasmany through etc) to access association methods
@@ -87,8 +95,8 @@ until exit == true
     menu.choice "2. Browse Player Stats", 2
 #    menu.choice "3. Browse Interesting Data", 3
     menu.choice "4. Change Favorite Team", 4
-    menu.choice "5. See Team Schedule", 5
-    menu.choice "6. Browse NBA Stats", 6
+#    menu.choice "5. See Team Schedule", 5
+#    menu.choice "6. Browse NBA Stats", 6
     menu.choice "7. EXIT", 7
     menu.choice "8. MUSIC ON/OFF", 8
   end
@@ -116,7 +124,11 @@ until exit == true
       puts "\n"
       puts "You selected #{player.name}! Here are his 2019 season stats:"
       puts "\n"
-      puts fetch_player_stats(player.api_playerID)
+
+      fetch_player_stats(player.api_playerID).each do |stat_name, stat|
+        puts "#{stat_name}:".ljust(16) + "#{stat}".rjust(10)
+      end
+
       puts "\n"
       exit2 = prompt.select("What's next?") do |menu|
         menu.choice "Go Back To Home Screen", 1
