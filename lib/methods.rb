@@ -87,4 +87,3 @@ def fetch_team_stats(api_teamId)
 end
 
 # Returns hash of teams season stats ("win", "loss", "winPercentage", "home record" => "31/"4" , "away record" => "12"/"26")
-end
