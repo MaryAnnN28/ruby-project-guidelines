@@ -68,8 +68,20 @@ def fetch_player_stats(api_playerId)
 end
 
 
-# def fetch_team_stats(api_teamId)
-#      # Returns hash of teams season stats ("win", "loss", "winPercentage", "home record" => "31/"4" , "away record" => "12"/"26")
+def fetch_team_stats(api_teamId)
+
+     url = URI("https://api-nba-v1.p.rapidapi.com/standings/standard/2019/teamId/27")
+
+     http = Net::HTTP.new(url.host, url.port)
+     http.use_ssl = true
+     http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+     request = Net::HTTP::Get.new(url)
+     request["x_rapidapi_key"] = ENV['x_rapidapi_key']
+     request["x-rapidapi-host"] = 'api-nba-v1.p.rapidapi.com'
+
+     response = http.request(request)
+# Returns hash of teams season stats ("win", "loss", "winPercentage", "home record" => "31/"4" , "away record" => "12"/"26")
 # end 
 
 
