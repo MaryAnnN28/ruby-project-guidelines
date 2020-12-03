@@ -43,13 +43,8 @@ def fetch_player_stats(api_playerId)
 
 
      total_points = player_game_avg.sum { |game| game["points"].to_i }.to_s
-<<<<<<< HEAD
      ppg = total_points.to_f / player_game_avg.count.round(2) # becomes rounded to whole numbers...need float?
-     
-=======
-     ppg = total_points.to_i / player_game_avg.count # becomes rounded to whole numbers...need float?
 
->>>>>>> cbc1325b08c782b9bc5926459ef3bdcbcd63270a
      fgm = player_game_avg.sum { |game| game["fgm"].to_i } # need for fgp
      fga = player_game_avg.sum { |game| game["fga"].to_i } # need for fgp
      fgp = ((fgm.to_f/fga.to_f).round(2))*100
@@ -60,13 +55,8 @@ def fetch_player_stats(api_playerId)
 
      tpm = player_game_avg.sum { |game| game["tpm"].to_i } # need for tpp
      tpa = player_game_avg.sum { |game| game["tpa"].to_i } # need for tpp
-<<<<<<< HEAD
      tpp = ((tpm.to_f/tpa.to_f)*100).round(2)
-    
-=======
-     tpp = ((tpm.to_f/tpa.to_f)*100).round(3)
 
->>>>>>> cbc1325b08c782b9bc5926459ef3bdcbcd63270a
      rpg = player_game_avg.sum { |game| game["totReb"].to_i } / player_game_avg.count
      apg = player_game_avg.sum { |game| game["assists"].to_i } / player_game_avg.count
      spg = player_game_avg.sum { |game| game["steals"].to_i } / player_game_avg.count
