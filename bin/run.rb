@@ -2,6 +2,8 @@ require_relative '../config/environment'
 require "tty-prompt"
 prompt = TTY::Prompt.new
 Player.destroy_all
+pid = spawn( 'afplay', "music/NBA_on_TNT_Theme.mp3" )
+
 
 #TO DO
 # We need to set up associations (belongto hasmany through etc) to access association methods
@@ -22,7 +24,7 @@ if User.find_by(name: username)
   #go straight to home screen with username's favorite team
 else
   current_user_profile = User.create(name: username)
-  favorite_team = prompt.select("New User! Please select a Favorite Team. You can only view stats for this team:") do |menu|
+  favorite_team = prompt.select("New User! Please select a Favorite Team. You will be able to view stats for this team:") do |menu|
     menu.choice "Atlanta Hawks"
     menu.choice "Boston Celtics"
     menu.choice "Brooklyn Nets"
@@ -90,17 +92,17 @@ until exit == true
   end
 
   if home_selection == 2
-    exit2 = false
+    exit2 = 0
     choices = Player.all.map do |player|
       {name: player.name, value: player}
     end
-    until exit2 == true do
+    until exit2 == 1 do
       player = prompt.select("Please select a player from your favorite team:", choices)
       puts "You selected #{player.name}! Here are his 2019 season stats:"
       puts fetch_player_stats(player.api_playerID)
-      prompt.select("What's next?") do |menu|
-        menu.choice "Select Another Player"
-        menu.choice "Go Back To Home Screen", exit2 = true
+      exit2 = prompt.select("What's next?") do |menu|
+        menu.choice "Select Another Player", 0
+        menu.choice "Go Back To Home Screen", 1
       end
     end
   end
@@ -110,20 +112,20 @@ until exit == true
   end
 
   if home_selection == 4
-    exit4 = false
+    exit4 = 0
     choices = Team.all.map do |team|
       {name: team.name, value: team}
     end
-    until exit4 == true do
+    until exit4 == 1 do
       team = prompt.select("Please select a new favorite team:", choices)
       Favorite_team_joiner.find_by(user_id: current_user_profile.id).update(team_id: team.id)
       fav_team = team
       Player.destroy_all
       fetch_players(fav_team.api_teamID).each{|player|Player.create(name:player[0]+" "+player[1], api_playerID:player[2])}
       puts "You selected #{team.name}! They are a great team!"
-      prompt.select("What's next?") do |menu|
-        menu.choice "Select A Different Team"
-        menu.choice "Go Back To Home Screen", exit4 = true
+      exit4 = prompt.select("What's next?") do |menu|
+        menu.choice "Select A Different Team", 0
+        menu.choice "Go Back To Home Screen", 1
       end
     end
   end
@@ -139,5 +141,6 @@ until exit == true
   if home_selection == 7
     exit = true
     puts "Goodbye! Have a great day! Adios!"
+    pid = fork{ system 'killall', 'afplay' }
   end
 end
