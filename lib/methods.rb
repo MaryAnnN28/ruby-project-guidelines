@@ -24,7 +24,7 @@ end
 
 
 
-def fetch_player_game(api_playerId)
+def fetch_player_stats(api_playerId)
      url = URI("https://api-nba-v1.p.rapidapi.com/statistics/players/playerId/#{api_playerId}")
 
      http = Net::HTTP.new(url.host, url.port)
@@ -39,21 +39,26 @@ def fetch_player_game(api_playerId)
 
      favorite_team_player_games = JSON.parse(response.read_body)["api"]["statistics"]
      season_2019 = favorite_team_player_games.select { |game| game["gameId"].to_i > 6230 && game["min"].to_i > 0 } 
-     player_game_avg = season_2019.each {|game| {"points" => game["points"], "min" => game["min"], "fgp" => game["fgp"], "ftp" => game["ftp"], "tpp" => game["tpp"], "totReb" => game["totReb"], "assists" => game["assists"], "steals" => game["steals"], "block" => game["blocks"], "plusMinus" => game["plusMinus"]}}
+     player_game_avg = season_2019.each {|game| {"points" => game["points"], "min" => game["min"], "totReb" => game["totReb"], "assists" => game["assists"], "steals" => game["steals"], "block" => game["blocks"], "plusMinus" => game["plusMinus"]}}
+     # DON't forget to add fgm, fga, tpm, tpa 
 
-     total_points = player_game_avg.select { |points| points.sum }
-     # total_min = player_game_avg
-     # total_fgp = 
-     # total_ftp = 
-     # total_ttp
-     # total_totReb
-     # total_assists
-     # total_steals
-     # total_blocks
-     # total_plusMinus
+     total_points = player_game_avg.sum { |game| game["points"].to_i }.to_s
+     # ppg = total_points/total_games
+     # fgp = total_fgm/total_fga 
+     # ftp = total_ftm/total_fta 
+     # ttp = total_ttm/total_fta 
+     # rpg = 
+     # apg 
+     # spg 
+     # bpg
+     # plusMinus_avg = total_plusMinus/total games
+     # returns hash of players season averages 
 end
 
 
+# def fetch_team_stats(api_teamId)
+#      # Returns hash of teams season stats ("win", "loss", "winPercentage", "home record" => "31/"4" , "away record" => "12"/"26")
+# end 
 
 
 
