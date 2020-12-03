@@ -24,14 +24,14 @@ class Player < ActiveRecord::Base
      tpa = player_game_avg.sum { |game| game["tpa"].to_i } # need for tpp
      tpp = ((tpm.to_f/tpa.to_f)*100).round(2)
 
-     rpg = player_game_avg.sum { |game| game["totReb"].to_i }.to_f / player_game_avg.count
+     rpg = (player_game_avg.sum { |game| game["totReb"].to_i }.to_f / player_game_avg.count).round(2)
      apg = (player_game_avg.sum { |game| game["assists"].to_i }.to_f / player_game_avg.count).round(2)
      spg = (player_game_avg.sum { |game| game["steals"].to_i }.to_f / player_game_avg.count).round(2)
      bpg = (player_game_avg.sum { |game| game["blocks"].to_i }.to_f / player_game_avg.count).round(2)
-     plusMinus_avg = (player_game_avg.sum { |game| game["plusMinus"] }.to_f / player_game_avg.count).round(2)
+     plusMinus_avg = (player_game_avg.sum { |game| game["plusMinus"].to_i }.to_f / player_game_avg.count).round(2)
 
     # returns hash of players season averages
-     player_season_avg = {"points" => ppg, "fgp" => fgp, "ftp" => ftp, "tpp" => tpp, "rpg" => rpg, "apg" => apg, "spg" => spg, "bpg" => bpg, "plusMinus_avg" => plusMinus_avg }
+     player_season_avg = {"Points Per Game" => ppg, "Field Goal %" => fgp, "Free Throw %" => ftp, "3-Point %" => tpp, "Rebounds Per Game" => rpg, "Assists Per Game" => apg, "Steals Per Game" => spg, "Blocks Per Game" => bpg, "Plus/Minus Avg" => plusMinus_avg }
   end
 
 end

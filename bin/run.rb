@@ -125,8 +125,13 @@ until exit == true
       puts "You selected #{player.name}! Here are his 2019 season stats:"
       puts "\n"
 
-      fetch_player_stats(player.api_playerID).each do |stat_name, stat|
-        puts "#{stat_name}:".ljust(16) + "#{stat}".rjust(10)
+      # Code below outputs the stats for the seelected player
+      if fetch_player_stats(player.api_playerID).class == String
+        puts fetch_player_stats(player.api_playerID)
+      else
+        fetch_player_stats(player.api_playerID).each do |stat_name, stat|
+          puts "#{stat_name}:".ljust(20) + "#{stat}".rjust(10)
+        end
       end
 
       puts "\n"
