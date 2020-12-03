@@ -12,34 +12,43 @@ def fetch_players(api_teamId)
      http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
      request = Net::HTTP::Get.new(url)
-     request["x-rapidapi-key"] = 'deaf59203fmshce09f7b6c729ccap1bfcfdjsnd303908d1191'
+     request["x-rapidapi-key"] = $api_key
      request["x-rapidapi-host"] = 'api-nba-v1.p.rapidapi.com'
 
      response = http.request(request)
 
      favorite_team_active_players = JSON.parse(response.read_body)["api"]["players"].select {|player| player["leagues"].has_key?("standard")}.select {|player| player["leagues"]["standard"]["active"]=="1"}
      favorite_team_active_players.map {|player| [player["firstName"], player["lastName"], player["playerId"]]}
+    
+      
 
 end
 
 
 
-def fetch_player_stats(api_playerId)
-     url = URI("https://api-nba-v1.p.rapidapi.com/statistics/players/playerId/#{api_playerId}")
+def fetch_player_stats(api_playerID)
+     url = URI("https://api-nba-v1.p.rapidapi.com/statistics/players/playerId/#{api_playerID}")
 
      http = Net::HTTP.new(url.host, url.port)
      http.use_ssl = true
      http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
      request = Net::HTTP::Get.new(url)
-     request["x-rapidapi-key"] = 'deaf59203fmshce09f7b6c729ccap1bfcfdjsnd303908d1191'
+     request["x-rapidapi-key"] = $api_key
      request["x-rapidapi-host"] = 'api-nba-v1.p.rapidapi.com'
 
      response = http.request(request)
 
      favorite_team_player_games = JSON.parse(response.read_body)["api"]["statistics"]
-     favorite_team_player_games
-     
+     season_2019 = favorite_team_player_games.select { |game| game["gameId"].to_i > 6230 && game["min"].to_i > 0 }
+
+     if season_2019.count == 0 
+          "Sorry, but #{Player.find_by(api_playerID: api_playerID).name} did not play in 2019 season."
+     else
+          Player.add_stats(season_2019) 
+     end
+
+
 end
 
 
@@ -56,7 +65,7 @@ def fetch_team_stats(api_teamId)
      http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
      request = Net::HTTP::Get.new(url)
-     request["x-rapidapi-key"] = 'deaf59203fmshce09f7b6c729ccap1bfcfdjsnd303908d1191'
+     request["x-rapidapi-key"] = $api_key
      request["x-rapidapi-host"] = 'api-nba-v1.p.rapidapi.com'
 
      response = http.request(request)
