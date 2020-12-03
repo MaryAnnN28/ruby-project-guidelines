@@ -85,7 +85,7 @@ until exit == true
 # Need to abstract the methods for each option. Potentially add classes?
   if home_selection == 1
     puts "Here are the team stats."
-    puts fetch_team_stats(fav_team.api_teamId)
+    puts fetch_team_stats(fav_team.api_teamID)
 # Add team stats
   end
 
@@ -94,12 +94,12 @@ until exit == true
     choices = Player.all.map do |player|
       {name: player.name, value: player}
     end
-    until exit2 == true
+    until exit2 == true do
       player = prompt.select("Please select a player from your favorite team:", choices)
       puts "You selected #{player.name}! Here are his 2019 season stats:"
       puts fetch_player_stats(player.api_playerID)
-      prompt.select("What next?") do |menu|
-        menu.choice "Select Another Player", exit2 = false
+      prompt.select("What's next?") do |menu|
+        menu.choice "Select Another Player"
         menu.choice "Go Back To Home Screen", exit2 = true
       end
     end
@@ -110,7 +110,22 @@ until exit == true
   end
 
   if home_selection == 4
-    # Change Favorite Team
+    exit4 = false
+    choices = Team.all.map do |team|
+      {name: team.name, value: team}
+    end
+    until exit4 == true do
+      team = prompt.select("Please select a new favorite team:", choices)
+      Favorite_team_joiner.find_by(user_id: current_user_profile.id).update(team_id: team.id)
+      fav_team = team
+      Player.destroy_all
+      fetch_players(fav_team.api_teamID).each{|player|Player.create(name:player[0]+" "+player[1], api_playerID:player[2])}
+      puts "You selected #{team.name}! They are a great team!"
+      prompt.select("What's next?") do |menu|
+        menu.choice "Select A Different Team"
+        menu.choice "Go Back To Home Screen", exit4 = true
+      end
+    end
   end
 
   if home_selection == 5
