@@ -44,8 +44,8 @@ else
     menu.choice "Golden State Warriors"
     menu.choice "Houston Rockets"
     menu.choice "Indiana Pacers"
-    menu.choice "Las Angeles Clippers"
-    menu.choice "Las Angeles Lakers"
+    menu.choice "Los Angeles Clippers"
+    menu.choice "Los Angeles Lakers"
     menu.choice "Memphis Grizzlies"
     menu.choice "Miami Heat"
     menu.choice "Milwaukee Bucks"
@@ -75,18 +75,17 @@ end
 # Need to include method to add stats as well.
 fetch_players(fav_team.api_teamID).each{|player|Player.create(name:player[0]+" "+player[1], api_playerID:player[2])}
 
-puts "\n"
-puts "HOME SCREEN"
-puts "\n"
-
 exit = false
 until exit == true
+  puts "\n"
+  puts "HOME SCREEN"
+  puts "\n"
   puts "Hey there #{current_user_profile.name}, Your current favorite team is the #{fav_team.name}."
   puts "\n"
   home_selection = prompt.select("Please select an option from the menu below:") do |menu|
     menu.choice "1. Browse Team Stats", 1
     menu.choice "2. Browse Player Stats", 2
-    menu.choice "3. Browse Interesting Data", 3
+#    menu.choice "3. Browse Interesting Data", 3
     menu.choice "4. Change Favorite Team", 4
     menu.choice "5. See Team Schedule", 5
     menu.choice "6. Browse NBA Stats", 6
@@ -120,8 +119,8 @@ until exit == true
       puts fetch_player_stats(player.api_playerID)
       puts "\n"
       exit2 = prompt.select("What's next?") do |menu|
-        menu.choice "Select Another Player", 0
         menu.choice "Go Back To Home Screen", 1
+        menu.choice "Select Another Player", 0
       end
       puts "\n"
     end
@@ -146,8 +145,8 @@ until exit == true
       puts "You selected #{team.name}! They are a great team!"
       puts "\n"
       exit4 = prompt.select("What's next?") do |menu|
-        menu.choice "Select A Different Team", 0
         menu.choice "Go Back To Home Screen", 1
+        menu.choice "Select A Different Team", 0
       end
       puts "\n"
     end

@@ -22,9 +22,12 @@ GEM
       concurrent-ruby (~> 1.0)
     json (2.3.1)
     method_source (1.0.0)
+    mini_portile2 (2.4.0)
     minitest (5.14.2)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
+    nokogiri (1.10.10)
+      mini_portile2 (~> 2.4.0)
     openssl (2.2.0)
     pastel (0.8.0)
       tty-color (~> 0.5)
@@ -73,6 +76,7 @@ DEPENDENCIES
   figaro
   git-audio-commit
   json
+  nokogiri
   openssl
   pry
   rake
