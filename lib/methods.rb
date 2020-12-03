@@ -43,20 +43,30 @@ def fetch_player_stats(api_playerId)
 
 
      total_points = player_game_avg.sum { |game| game["points"].to_i }.to_s
+<<<<<<< HEAD
+     ppg = total_points.to_f / player_game_avg.count.round(2) # becomes rounded to whole numbers...need float?
+     
+=======
      ppg = total_points.to_i / player_game_avg.count # becomes rounded to whole numbers...need float?
 
+>>>>>>> cbc1325b08c782b9bc5926459ef3bdcbcd63270a
      fgm = player_game_avg.sum { |game| game["fgm"].to_i } # need for fgp
      fga = player_game_avg.sum { |game| game["fga"].to_i } # need for fgp
-     fgp = ((fgm.to_f/fga.to_f).round(3))*100
+     fgp = ((fgm.to_f/fga.to_f).round(2))*100
 
      ftm = player_game_avg.sum { |game| game["ftm"].to_i } # need for ftp
      fta = player_game_avg.sum { |game| game["fta"].to_i } # need for ftp
-     ftp = ((ftm.to_f/fta.to_f)*100).round(3)
+     ftp = ((ftm.to_f/fta.to_f)*100).round(2)
 
      tpm = player_game_avg.sum { |game| game["tpm"].to_i } # need for tpp
      tpa = player_game_avg.sum { |game| game["tpa"].to_i } # need for tpp
+<<<<<<< HEAD
+     tpp = ((tpm.to_f/tpa.to_f)*100).round(2)
+    
+=======
      tpp = ((tpm.to_f/tpa.to_f)*100).round(3)
 
+>>>>>>> cbc1325b08c782b9bc5926459ef3bdcbcd63270a
      rpg = player_game_avg.sum { |game| game["totReb"].to_i } / player_game_avg.count
      apg = player_game_avg.sum { |game| game["assists"].to_i } / player_game_avg.count
      spg = player_game_avg.sum { |game| game["steals"].to_i } / player_game_avg.count
@@ -70,16 +80,21 @@ end
 
 def fetch_team_stats(api_teamId)
 
-     url = URI("https://api-nba-v1.p.rapidapi.com/standings/standard/2019/teamId/27")
+     url = URI("https://api-nba-v1.p.rapidapi.com/standings/standard/2019/teamId/#{api_teamId}")
 
      http = Net::HTTP.new(url.host, url.port)
      http.use_ssl = true
      http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
      request = Net::HTTP::Get.new(url)
-     request["x_rapidapi_key"] = ENV['x_rapidapi_key']
+     request["x-rapidapi-key"] = 'deaf59203fmshce09f7b6c729ccap1bfcfdjsnd303908d1191'
      request["x-rapidapi-host"] = 'api-nba-v1.p.rapidapi.com'
 
      response = http.request(request)
+
+     favorite_team_stats = JSON.parse(response.read_body)["api"]["statistics"]
+
+end
+
 # Returns hash of teams season stats ("win", "loss", "winPercentage", "home record" => "31/"4" , "away record" => "12"/"26")
 end
