@@ -7,3 +7,6 @@ ActiveRecord::Base.logger = nil
 
 
 require "tty-prompt"
+#require "HTTParty"
+require 'json'
+require 'open-uri'
