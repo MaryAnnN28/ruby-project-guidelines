@@ -13,4 +13,7 @@ tmp
 db/*.db
 
 # Ignore application configuration
+
 /config/application.yml
+/config/.api_key.rb
+
