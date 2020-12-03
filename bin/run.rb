@@ -91,7 +91,7 @@ until exit == true
     menu.choice "5. See Team Schedule", 5
     menu.choice "6. Browse NBA Stats", 6
     menu.choice "7. EXIT", 7
-    menu.choice "8. MUSIC OFF/ON", 8
+    menu.choice "8. MUSIC ON/OFF", 8
   end
   puts "\n"
 
