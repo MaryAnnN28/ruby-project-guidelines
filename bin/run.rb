@@ -47,7 +47,7 @@ end
 
 ### This part of the program houses the main menu. From here we have 5 options. This is where we access API and pull favorite team info from conditional.
 
-]fetch_players(fav_team.api_teamID).each{|player|Player.create(name:player[0]+" "+player[1], api_playerID:player[2])}
+fetch_players(fav_team.api_teamID).each{|player|Player.create(name:player[0]+" "+player[1], api_playerID:player[2])}
 
 exit = false
 until exit == true
@@ -156,7 +156,7 @@ until exit == true
   end
 
   if home_selection == 5
-    
+
     if music_on == true
       Process.kill "TERM", pid
       music_on = false
