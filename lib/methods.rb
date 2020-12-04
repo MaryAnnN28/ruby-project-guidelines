@@ -65,13 +65,15 @@ def fetch_team_stats(api_teamId)
      http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
      request = Net::HTTP::Get.new(url)
-     request["x-rapidapi-key"] = $api_key
+     request["x-rapidapi-key"] = 'deaf59203fmshce09f7b6c729ccap1bfcfdjsnd303908d1191'
      request["x-rapidapi-host"] = 'api-nba-v1.p.rapidapi.com'
 
      response = http.request(request)
 
-     favorite_team_stats = JSON.parse(response.read_body)["api"]["statistics"]
+     stats = JSON.parse(response.read_body)["api"]["standings"][0]
 
+     team_season_stats = {"Wins" => stats["win"], "Loses" => stats["loss"], "Win %" => stats["winPercentage"], "Home Record" => "#{stats["home"]["win"]}-#{stats["home"]["loss"]}", "Away Record" => "#{stats["away"]["win"]}-#{stats["away"]["loss"]}"}
 end
+
 
 # Returns hash of teams season stats ("win", "loss", "winPercentage", "home record" => "31/"4" , "away record" => "12"/"26")
