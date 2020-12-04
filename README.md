@@ -8,14 +8,14 @@
 **Project Team:** Andres Hernandez and Mary Ann Navarrete
 
 
+
 ## Stats in the Paint FAQ
 
 ### Summary 
-
 Stats in the Paint provides up-to-date NBA stats of your favorite NBA teams, NBA players, along with analytics and game schedules. You can create a new user account to customize your homescreen with your favorite team or browse as a guest and view any team and player stats and schedules. 
 
-### Account Member Benefits
 
+### Account Member Benefits
 Account holders have additional features, such as customized home page with selected favorite team's stats already selected each time you log in. You won't need to go through the menu to select your team every time you log in! You have the option to change your favorite team or view another team at any time. Simply go to the main menu for the ***"Change your favorite team"*** option.  
 
 
@@ -25,18 +25,20 @@ Account holders have additional features, such as customized home page with sele
 - User can access specific NBA player's stats
 - User can compare see interesting NBA stats 
 
+
 ### Bonus Features
 - >> HAVE ANDRES REVIEW <<
 - Music feature upon entering home page (option to play or turn off) 
 - Check out LeBron James in Player Stats (1. Select Los Angeles Lakers in Teams, 2. Find Lebron in Players)
 
+
 ### About the Developers
 Mary Ann & Andres, both NBA fans (Sixers and Spurs fans respectively) with a love for NBA stats and analytics, were the perfectly paired, just 3 weeks before the start of the 2020-2021 NBA season. Their goal was to provide both analytics and data hungry NBA fans with a resource that both customizes the user's home page specific to their favorite team, or any selected team, along with viewing key stats for all 30 teams and players. 
 
-<div class="text-white bg-blue mb-2"> Enjoy this app & let's go SIXERS! </div> 🏀 
+Enjoy this app & let's go Sixers! 🏀 
 
 
-###Installation Instructions
+### Installation Instructions
 
 1. Fork and clone this repository. (https://github.com/MaryAnnN28/ruby-project-guidelines)
 2. Run **bundle install** from your terminal 
@@ -44,11 +46,11 @@ Mary Ann & Andres, both NBA fans (Sixers and Spurs fans respectively) with a lov
 4. ?????
 
 
-<div class="text-blue">### Project Resources</div>
-1. API integration: We utilized [RapidAPI](https://rapidapi.com/marketplace), which is the world's largest API marketplace, with over 20,000 APIs, allowing you easily find and test the APIs that are perfect for your project. 
+### Project Resources
+1. API integration: We utilized [RapidAPI](https://rapidapi.com/marketplace) 
 2. Review of analytics & stats: [NBA.com](https://www.nba.com)
 3. Review of analytics & stats: [Basketball-reference](https://www.basketball-reference.com)
-4. *ANDRES TO ADD MP3 RESOURCES??**
+4. *ANDRES TO ADD MP3 RESOURCES??*
 
 
 ### Project Requirements
