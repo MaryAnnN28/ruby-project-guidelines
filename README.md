@@ -12,7 +12,7 @@
 ## Stats in the Paint FAQ
 
 ### Summary
-Stats in the Paint provides up-to-date NBA stats of your favorite NBA teams, NBA players, along with analytics and game schedules. You can create a new user account to customize your homescreen with your favorite team or browse as a guest and view any team and player stats and schedules.
+Stats in the Paint provides up-to-date NBA stats of your favorite NBA teams, NBA players, along with analytics. You can create a new user account to customize your homescreen with your favorite team or browse as a guest and view any team and player stats and schedules.
 
 
 ### Account Member Benefits
