@@ -31,20 +31,20 @@ Account holders have additional features, such as customized home page with sele
 - Check out LeBron James in Player Stats (1. Select Los Angeles Lakers in Teams, 2. Find Lebron in Players)
 
 ### About the Developers
-Mary Ann & Andres, both NBA fans (Sixers and Spurs fans respectively) with a love for NBA stats and analytics, were the perfect pair, just 3 weeks before the start of the 2020-2021 NBA season. Their goal was to provide both analytics and data hungry NBA fans with a resource that both customizes their user's home page specific to their favorite team, or selected team, along with viewing all key stats for all 30 teams and players. 
+Mary Ann & Andres, both NBA fans (Sixers and Spurs fans respectively) with a love for NBA stats and analytics, were the perfectly paired, just 3 weeks before the start of the 2020-2021 NBA season. Their goal was to provide both analytics and data hungry NBA fans with a resource that both customizes the user's home page specific to their favorite team, or any selected team, along with viewing key stats for all 30 teams and players. 
 
-Enjoy this app & let's go SIXERS!😜🏀 
+<div class="text-white bg-blue mb-2"> Enjoy this app & let's go SIXERS! </div> 🏀 
 
 
-## Installation Instructions
+###Installation Instructions
 
 1. Fork and clone this repository. (https://github.com/MaryAnnN28/ruby-project-guidelines)
-2. Run 'bundle install' in terminal 
-3. ????
+2. Run **bundle install** from your terminal 
+3. Then enter **rake db:migrate** to create database
 4. ?????
 
 
-### Project Resources 
+<div class="text-blue">### Project Resources</div>
 1. API integration: We utilized [RapidAPI](https://rapidapi.com/marketplace), which is the world's largest API marketplace, with over 20,000 APIs, allowing you easily find and test the APIs that are perfect for your project. 
 2. Review of analytics & stats: [NBA.com](https://www.nba.com)
 3. Review of analytics & stats: [Basketball-reference](https://www.basketball-reference.com)
