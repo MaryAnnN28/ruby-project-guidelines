@@ -68,7 +68,7 @@ until exit == true
 
 # Need to abstract the methods for each option. Potentially add classes?
   if home_selection == 1
-    puts "Here are the team stats."
+    puts "Here are the team stats for the #{fav_team.name}."
     puts "\n"
     fetch_team_stats(fav_team.api_teamID).each do |stat_name, stat|
       puts "#{stat_name}:".ljust(20) + "#{stat}".rjust(10)
