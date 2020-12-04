@@ -2,7 +2,7 @@
 
 ## Check stats for your favorite NBA teams and players 
 
-**Project 1, Module 1 for Flatiron School - Software Engineering**
+**Flatiron School:** Module 1 Final Project 
 **Project Team:** Andres Hernandez and Mary Ann Navarrete
 
 
