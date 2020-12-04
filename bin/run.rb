@@ -22,6 +22,7 @@ fav_team = nil
 puts "\n"
 puts "Welcome to Stats in the Paint!"
 puts "\n"
+Image.sip_logo
 
 # puts "Please enter your username, or create a new username."
 # username = gets.strip
@@ -56,6 +57,8 @@ until exit == true
   puts "HOME SCREEN"
   puts "\n"
   puts "Hey there #{current_user_profile.name}, Your current favorite team is the #{fav_team.name}."
+  puts "\n"
+  fav_team.print_logo
   puts "\n"
   home_selection = prompt.select("Please select an option from the menu below:") do |menu|
     menu.choice "1. Browse Team Stats", 1

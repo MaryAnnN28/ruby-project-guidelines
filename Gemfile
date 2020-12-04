@@ -15,3 +15,4 @@ gem 'figaro'
 gem 'git-audio-commit'
 gem 'nokogiri' #parsing gem
 #gem 'HTTParty' #HTTP request gem
+gem 'colorize'
