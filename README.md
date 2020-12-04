@@ -50,7 +50,6 @@ Enjoy this app & let's go Sixers! 🏀
 1. API integration: We utilized [RapidAPI](https://rapidapi.com/marketplace) 
 2. Review of analytics & stats: [NBA.com](https://www.nba.com)
 3. Review of analytics & stats: [Basketball-reference](https://www.basketball-reference.com)
-4. *ANDRES TO ADD MP3 RESOURCES??*
 
 
 ### Project Requirements
