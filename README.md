@@ -30,6 +30,11 @@ Account holders have additional features, such as customized home page with sele
 - Music feature upon entering home page (option to play or turn off) 
 - Check out LeBron James in Player Stats (1. Select Los Angeles Lakers in Teams, 2. Find Lebron in Players)
 
+### About the Developers
+Mary Ann & Andres, both NBA fans (Sixers and Spurs fans respectively) with a love for NBA stats and analytics, were the perfect pair, just 3 weeks before the start of the 2020-2021 NBA season. Their goal was to provide both analytics and data hungry NBA fans with a resource that both customizes their user's home page specific to their favorite team, or selected team, along with viewing all key stats for all 30 teams and players. 
+
+Enjoy this app & let's go SIXERS!😜🏀 
+
 
 ## Installation Instructions
 
