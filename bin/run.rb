@@ -62,8 +62,9 @@ until exit == true
     menu.choice "1. Browse Team Stats", 1
     menu.choice "2. Browse Player Stats", 2
     menu.choice "3. Change Favorite Team", 3
-    menu.choice "4. EXIT", 4
-    menu.choice "5. MUSIC ON/OFF", 5
+    menu.choice "4. NBA Season Team Stat Rankings", 4
+    menu.choice "5. EXIT", 5
+    menu.choice "6. MUSIC ON/OFF", 6
   end
   puts "\n"
 
@@ -145,6 +146,22 @@ until exit == true
   end
 
   if home_selection == 4
+    exit4 = 0
+
+    until exit4 == 1 do
+
+      team_season_leaders
+
+      exit4 = prompt.select("What's next?") do |menu|
+        menu.choice "Go Back To Home Screen", 1
+      end
+      puts "\n"
+    end
+
+  end
+
+
+  if home_selection == 5
     exit = true
 
     puts "\n"
@@ -155,7 +172,7 @@ until exit == true
 
   end
 
-  if home_selection == 5
+  if home_selection == 6
 
     if music_on == true
       Process.kill "TERM", pid
