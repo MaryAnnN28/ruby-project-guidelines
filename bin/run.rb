@@ -15,17 +15,18 @@ if music_on == true
   pid = spawn( 'afplay', "music/NBA_on_TNT_Theme.mp3" )
 end
 
-# Line below establishes user profile for home screen. Will populate from prompt.
+# Lines below establishes user profile and favorite team for home screen. Will populate from prompt.
+
 current_user_profile = nil
 fav_team = nil
+
 # This part of the program welcomes the user and requests a username. This will load up the favorite team and send to the home screen.
+
 puts "\n"
 puts "Welcome to Stats in the Paint!"
 puts "\n"
 Image.sip_logo
 
-# puts "Please enter your username, or create a new username."
-# username = gets.strip
 username = prompt.ask("Please enter your username, or create a new username:")
 if User.find_by(name: username)
   puts "\n"
@@ -33,7 +34,6 @@ if User.find_by(name: username)
   puts "\n"
   current_user_profile = User.find_by(name: username)
   fav_team = Team.find_by(id: Favorite_team_joiner.find_by(user_id: current_user_profile.id).team_id)
-  #go straight to home screen with username's favorite team
 else
   current_user_profile = User.create(name: username)
   puts "\n"
@@ -44,12 +44,10 @@ else
   puts "\n"
   Favorite_team_joiner.create(user_id: current_user_profile.id, team_id: fav_team.id)
 end
-# Now travel to home screen with new username's favorite team.
 
-### This part of the program houses the main menu. From here we have 7 options. This is where we access API and pull favorite team info from conditional.
+### This part of the program houses the main menu. From here we have 5 options. This is where we access API and pull favorite team info from conditional.
 
-# Method below adds players to database.
-fetch_players(fav_team.api_teamID).each{|player|Player.create(name:player[0]+" "+player[1], api_playerID:player[2])}
+]fetch_players(fav_team.api_teamID).each{|player|Player.create(name:player[0]+" "+player[1], api_playerID:player[2])}
 
 exit = false
 until exit == true
@@ -69,19 +67,27 @@ until exit == true
   end
   puts "\n"
 
-# Need to abstract the methods for each option. Potentially add classes?
   if home_selection == 1
-    puts "Here are the team stats for the #{fav_team.name}."
-    puts "\n"
-    fetch_team_stats(fav_team.api_teamID).each do |stat_name, stat|
-      puts "#{stat_name}:".ljust(20) + "#{stat}".rjust(10)
+    exit1 = 0
+
+    until exit1 == 1 do
+      puts "Here are the team stats for the #{fav_team.name}."
+      puts "\n"
+      fetch_team_stats(fav_team.api_teamID).each do |stat_name, stat|
+        puts "#{stat_name}:".ljust(20) + "#{stat}".rjust(10)
+      end
+      puts "\n"
+      exit1 = prompt.select("What's next?") do |menu|
+        menu.choice "Go Back To Home Screen", 1
+      end
+      puts "\n"
     end
-    puts "\n"
-# Add team stats
+
   end
 
   if home_selection == 2
     exit2 = 0
+
     choices = Player.all.map do |player|
       {name: player.name, value: player}
     end
@@ -95,7 +101,6 @@ until exit == true
       puts "You selected #{player.name}! Here are his 2019 season stats:"
       puts "\n"
 
-      # Code below outputs the stats for the seelected player
       if fetch_player_stats(player.api_playerID).class == String
         puts fetch_player_stats(player.api_playerID)
       else
@@ -111,13 +116,16 @@ until exit == true
       end
       puts "\n"
     end
+
   end
 
   if home_selection == 3
     exit3 = 0
+
     choices = Team.all.map do |team|
       {name: team.name, value: team}
     end
+
     until exit3 == 1 do
       team = prompt.select("Please select a new favorite team:", choices)
       puts "\n"
@@ -133,17 +141,22 @@ until exit == true
       end
       puts "\n"
     end
+
   end
 
   if home_selection == 4
     exit = true
+
     puts "\n"
     puts "Goodbye! Have a great day! Adios!"
     puts "\n"
+
     pid = fork{ system 'killall', 'afplay' }
+
   end
 
   if home_selection == 5
+    
     if music_on == true
       Process.kill "TERM", pid
       music_on = false
@@ -151,6 +164,7 @@ until exit == true
       pid = spawn( 'afplay', "music/NBA_on_TNT_Theme.mp3" )
       music_on = true
     end
+
   end
 
 end
