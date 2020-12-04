@@ -1,4 +1,12 @@
-# Module One Final Project Guidelines
+# Stats in the Paint
+
+## Check stats for your favorite NBA teams and players 
+
+**Project 1, Module 1 for Flatiron School - Software Engineering**
+**Project Team:** Andres Hernandez and Mary Ann Navarrete
+
+
+
 
 Congratulations, you're at the end of module one! You've worked crazy hard to get here and have learned a ton.
 
