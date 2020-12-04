@@ -10,6 +10,7 @@ class Player < ActiveRecord::Base
      total_points = player_game_avg.sum { |game| game["points"].to_i }.to_s
      ppg = (total_points.to_f / player_game_avg.count).round(2) # becomes rounded to whole numbers...need float?
 
+     mpg = (player_game_avg.sum { |game| game["min"].to_i }.to_f / player_game_avg.count).round(2)
 
      fgm = player_game_avg.sum { |game| game["fgm"].to_i } # need for fgp
      fga = player_game_avg.sum { |game| game["fga"].to_i } # need for fgp
@@ -31,7 +32,7 @@ class Player < ActiveRecord::Base
      plusMinus_avg = (player_game_avg.sum { |game| game["plusMinus"].to_i }.to_f / player_game_avg.count).round(2)
 
     # returns hash of players season averages
-     player_season_avg = {"Points Per Game" => ppg, "Field Goal %" => fgp, "Free Throw %" => ftp, "3-Point %" => tpp, "Rebounds Per Game" => rpg, "Assists Per Game" => apg, "Steals Per Game" => spg, "Blocks Per Game" => bpg, "Plus/Minus Avg" => plusMinus_avg }
+     player_season_avg = {"Points Per Game" => ppg, "Min Per Game" => mpg, "Field Goal %" => fgp, "Free Throw %" => ftp, "3-Point %" => tpp, "Rebounds Per Game" => rpg, "Assists Per Game" => apg, "Steals Per Game" => spg, "Blocks Per Game" => bpg, "Plus/Minus Avg" => plusMinus_avg }
   end
 
 end
