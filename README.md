@@ -2,7 +2,8 @@
 
 ## Check stats for your favorite NBA teams and players 
 
-**Flatiron School:** Module 1 Final Project 
+
+**Flatiron School:** Module 1 Final Project - Software Engineering 
 
 **Project Team:** Andres Hernandez and Mary Ann Navarrete
 
@@ -20,8 +21,8 @@ Account holders have additional features, such as customized home page with sele
 
 ### User Story 
 - User can have favorite team/team(s) populate on their Home Screen
-- User can access NBA stats
-- User can access specific player's stats
+- User can access any NBA team's stats
+- User can access specific NBA player's stats
 - User can compare see interesting NBA stats 
 
 ### Bonus Features
@@ -30,17 +31,26 @@ Account holders have additional features, such as customized home page with sele
 - Check out LeBron James in Player Stats (1. Select Los Angeles Lakers in Teams, 2. Find Lebron in Players)
 
 
+## Installation Instructions
+
+1. Fork and clone this repository. (https://github.com/MaryAnnN28/ruby-project-guidelines)
+2. Run 'bundle install' in terminal 
+3. ????
+4. ?????
+
+
 ### Project Resources 
 1. API integration: We utilized [RapidAPI](https://rapidapi.com/marketplace), which is the world's largest API marketplace, with over 20,000 APIs, allowing you easily find and test the APIs that are perfect for your project. 
 2. Review of analytics & stats: [NBA.com](https://www.nba.com)
 3. Review of analytics & stats: [Basketball-reference](https://www.basketball-reference.com)
+4. *ANDRES TO ADD MP3 RESOURCES??**
 
 
 ### Project Requirements
 1. Access a Sqlite3 Database using ActiveRecord.
 2. Minimum of three models 
-  - Must include one join model
-  - Must have a many-to-many relationship
+    - Must include one join model
+    - Must have a many-to-many relationship
 3. Must seed database using data collected either from a CSV, a website by scraping, or an API.
 4. Must have a minimum of four(4) ***user stories*** to help explain how a user will interact with app. 
 5. Models should have methods that answer interesting questions about the data. For example, if you've collected info about movie reviews, what is the most popular movie? What movie has the most reviews?
@@ -48,11 +58,6 @@ Account holders have additional features, such as customized home page with sele
 7. Use good OO design patterns. Project should have separate classes for the models and CLI interface.
 
 
-## Instructions
 
-1. Fork and clone this repository. (https://github.com/MaryAnnN28/ruby-project-guidelines)
-2. Run 'bundle install' in terminal 
-3. ????
-4. ?????
 
 
