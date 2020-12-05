@@ -285,7 +285,7 @@ class Team < ActiveRecord::Base
       ╚██████╔╝██║░░██║██║███████╗███████╗███████╗██║███████╗██████╔╝
       ░╚═════╝░╚═╝░░╚═╝╚═╝╚══════╝╚══════╝╚══════╝╚═╝╚══════╝╚═════╝░
       logo
-      puts logo.colorize(:color => :cyan, :background => :light_blue)
+      puts logo.colorize(:color => :green, :background => :blue)
     end
 
     if self.api_teamID == "22"

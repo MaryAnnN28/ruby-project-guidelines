@@ -65,7 +65,7 @@ def fetch_team_stats(api_teamId)
      http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
      request = Net::HTTP::Get.new(url)
-     request["x-rapidapi-key"] = 'deaf59203fmshce09f7b6c729ccap1bfcfdjsnd303908d1191'
+     request["x-rapidapi-key"] = $api_key
      request["x-rapidapi-host"] = 'api-nba-v1.p.rapidapi.com'
 
      response = http.request(request)
